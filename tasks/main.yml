@@ -3,10 +3,10 @@
   apt:
     state: latest
     pkg: "{{ item }}"
-    with_items:
-    - curl
-    - git
-    - zsh
+  with_items:
+  - curl
+  - git
+  - zsh
   tags:
     - zsh
     - software-installation
