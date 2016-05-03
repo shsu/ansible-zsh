@@ -1,0 +1,22 @@
+---
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+    with_items:
+    - curl
+    - git
+    - zsh
+  tags:
+    - zsh
+    - software-installation
+    - using-apt
+
+- name: Clone oh-my-zsh
+  git:
+  args:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: $HOME/.oh-my-zsh
+
+- name: Install oh-my-zsh
+  script: $HOME/.oh-my-zsh/tools/install.sh

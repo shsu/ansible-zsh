@@ -1,0 +1,13 @@
+---
+dependencies: []
+galaxy_info:
+  author: "Steven Hsu"
+  description: "zsh shell with oh-my-zsh"
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - trusty
+      - xenial
+  categories:
+    - system
