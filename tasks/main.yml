@@ -4,19 +4,22 @@
     state: latest
     pkg: "{{ item }}"
   with_items:
-  - curl
-  - git
+  - git-core
   - zsh
   tags:
     - zsh
     - software-installation
     - using-apt
 
-- name: Clone oh-my-zsh
+- name: Install oh-my-zsh
+  become: no
   git:
   args:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: $HOME/.oh-my-zsh
+    dest: ~/.oh-my-zsh
 
-- name: Install oh-my-zsh
-  script: $HOME/.oh-my-zsh/tools/install.sh
+- name: Copy .zshrc template
+  become: no
+  command: cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  args:
+    creates: ~/.zshrc
